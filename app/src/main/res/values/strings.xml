@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ListaCompraAndroid</string>
+    <string name="but_agregar">Agregar Artículo</string>
+    <string name="title_activity_2">Activity2</string>
 </resources>
