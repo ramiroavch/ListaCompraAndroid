@@ -2,5 +2,55 @@
     <string name="app_name">ListaCompraAndroid</string>
     <string name="but_agregar">Agregar Artículo</string>
     <string name="title_activity_2">Activity2</string>
-    <string name="titulo2">Lista Artículos</string>
+
+    <!-- Nombres -->
+    <string-array name="articulos">
+        <item>Harina</item>
+        <item>Nutella</item>
+        <item>Arroz</item>
+        <item>Bimbo</item>
+        <item>Bread</item>
+        <item>Cheerios</item>
+        <item>Coke</item>
+        <item>Doritos</item>
+        <item>Jugo</item>
+        <item>Ketchup</item>
+        <item>Mayo</item>
+        <item>Oreos</item>
+        <item>Perro</item>
+        <item>Pirulin</item>
+        <item>Platanitos</item>
+        <item>Salchichas</item>
+        <item>Tequenos</item>
+        <item>Trululu</item>
+        <item>Yogurt</item>
+        <item>Pasta</item>
+    </string-array>
+
+    <!-- Imagenes -->
+    <array name="imagenes">
+        <item>@drawable/harina</item>
+        <item>@drawable/nutella</item>
+        <item>@drawable/arroz</item>
+        <item>@drawable/bimbo</item>
+        <item>@drawable/bread</item>
+        <item>@drawable/cheerios</item>
+        <item>@drawable/coke</item>
+        <item>@drawable/doritos</item>
+        <item>@drawable/jugo</item>
+        <item>@drawable/ketchup</item>
+        <item>@drawable/mayo</item>
+        <item>@drawable/oreos</item>
+        <item>@drawable/perro</item>
+        <item>@drawable/pirulin</item>
+        <item>@drawable/platanitos</item>
+        <item>@drawable/salchichas</item>
+        <item>@drawable/tequenos</item>
+        <item>@drawable/trululu</item>
+        <item>@drawable/yogurt</item>
+        <item>@drawable/pasta</item>
+    </array>
+
+
+
 </resources>
