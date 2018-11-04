@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 
@@ -17,14 +18,24 @@ import java.util.LinkedList;
  *
  *  @autor Ramiro Vargas, Veronica Hevia
  */
-public class Adapter_productos extends RecyclerView.Adapter<Adapter_productos.WordViewHolder>{
-
+public class Adapter_productos
+        extends RecyclerView.Adapter<Adapter_productos.WordViewHolder>
+        {
     private LinkedList<compraProducto> productsList;
     private LayoutInflater mInflater;
     private SecondActivity productosActivity;
+    private Context context;
 
-    public static class WordViewHolder extends RecyclerView.ViewHolder {
+    public Adapter_productos(Context context, LinkedList<compraProducto> wordList,SecondActivity productosActivity) {
+        mInflater = LayoutInflater.from(context);
+        this.productsList = wordList;
+        this.productosActivity = productosActivity;
+        this.context=context;
+    }
 
+
+
+    class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView wordItemView;
         public TextView priceItemView;
         public ImageView photoItemView;
@@ -42,15 +53,23 @@ public class Adapter_productos extends RecyclerView.Adapter<Adapter_productos.Wo
             photoItemView = (ImageView) itemView.findViewById(R.id.articulo);
             card = (CardView) itemView.findViewById(R.id.card_articulo);
             this.mAdapter = adapter;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int mPosition = getLayoutPosition();
+            String element = productsList.get(mPosition).nombre;
+            // Change the word in the mWordList.
+            Toast toast1 =
+                    Toast.makeText(context,
+                            element, Toast.LENGTH_SHORT);
+            toast1.show();
         }
     }
 
 
-    public Adapter_productos(Context context, LinkedList<compraProducto> wordList,SecondActivity productosActivity) {
-        mInflater = LayoutInflater.from(context);
-        this.productsList = wordList;
-        this.productosActivity = productosActivity;
-    }
+
 
     @NonNull
     @Override
