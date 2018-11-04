@@ -18,11 +18,13 @@ import java.util.LinkedList;
  *  @autor Ramiro Vargas, Veronica Hevia
  */
 public class Adapter_productos extends RecyclerView.Adapter<Adapter_productos.WordViewHolder>{
+
     private LinkedList<compraProducto> productsList;
     private LayoutInflater mInflater;
     private SecondActivity productosActivity;
 
     public static class WordViewHolder extends RecyclerView.ViewHolder {
+
         public TextView wordItemView;
         public TextView priceItemView;
         public ImageView photoItemView;
