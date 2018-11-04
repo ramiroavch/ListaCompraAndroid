@@ -17,11 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity"
-            android:label="@string/titulo2"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.android.listacompraandroid.MainActivity" />
+            android:parentActivityName=".MainActivity"
+            >
+            <meta-data android:name="android.support.PARENT ACTIVTY"
+                android:value="com.example.android.listacompraandroid.MainActivity">
+            </meta-data>
         </activity>
     </application>
 
