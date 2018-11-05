@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *  Activity que muestra una lista de productos creada
  *   por el usuario
  *
- *  @autor Ramiro Vargas, Veronica Hevia
+ *  @autor Ramiro Vargas , Veronica Hevia
  */
 
 public class MainActivity extends AppCompatActivity {
