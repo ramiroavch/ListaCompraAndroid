@@ -12,49 +12,61 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**Declaración de Variables*/
+
+    /**Variable para la respuesta de la Segunda actividad*/
     public static final int TEXT_REQUEST = 1;
+
+    /**Variable para instanciar la lista del diseño*/
     private ListView list;
+
     private ArrayAdapter<String> adapter;
+
+    /**Variable para almacenar la lista de compra para evitar perder los datos al voltear la pantalla*/
     private ArrayList<String> arrayList;
 
+
+    /**Metodo de creaión de la activity*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //creación de las variables
-        list=(ListView) findViewById(R.id.listarticles);
+        list = (ListView) findViewById(R.id.listarticles);
         if (savedInstanceState != null) {
             arrayList = savedInstanceState.getStringArrayList("arrayL");
 
-        }
-        else {
+        } else {
             arrayList = new ArrayList<String>();
         }
         adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
         list.setAdapter(adapter);
 
     }
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putStringArrayList("arrayL",arrayList);
+        outState.putStringArrayList("arrayL", arrayList);
     }
-    // Ver la lista de productos disponibles
+
+    /**Método de boton agregar que llama a la segunda activity en modo de recibir una respuesta o resultado*/
     public void agregar(View view) {
 
         Intent intent = new Intent(this, SecondActivity.class);
         startActivityForResult(intent, TEXT_REQUEST);
 
     }
-    // Limpiar la lista de productos existente
+
+    /** Limpiar la lista de productos existente*/
     public void eliminar(View view) {
 
         arrayList.clear();
         adapter.notifyDataSetChanged();
-        
+
     }
 
+    /**Metodo que captura la respueta de la segunda activity y almacena el nuevo artículo en la lista*/
     public void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == TEXT_REQUEST) {
@@ -66,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**Método de compartir la lista con otras aplicaciones*/
     public void share(View view) {
         String mimeType = "text/plain";
         ShareCompat.IntentBuilder
