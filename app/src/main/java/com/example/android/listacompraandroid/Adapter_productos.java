@@ -1,6 +1,7 @@
 package com.example.android.listacompraandroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -61,10 +62,11 @@ public class Adapter_productos
             int mPosition = getLayoutPosition();
             String element = productsList.get(mPosition).nombre;
             // Change the word in the mWordList.
-            Toast toast1 =
+            /*Toast toast1 =
                     Toast.makeText(context,
                             element, Toast.LENGTH_SHORT);
-            toast1.show();
+            toast1.show();*/
+            productosActivity.Return(element);
         }
     }
 

@@ -16,6 +16,7 @@ import java.util.LinkedList;
  */
 public class SecondActivity extends AppCompatActivity {
 
+    public static final String EXTRA_REPLY = "com.example.android.listacompraandroid.extra.REPLY";
     private final LinkedList<compraProducto> productsList = new LinkedList<>();
     private RecyclerView mRecyclerView;
     private Adapter_productos mAdapter;
@@ -67,5 +68,10 @@ public class SecondActivity extends AppCompatActivity {
         productsList.add(new compraProducto("Pasta","Precio: 45Bs",R.drawable.pasta));
     }
 
-
+    public void Return(String element){
+        Intent replyIntent = new Intent();
+        replyIntent.putExtra(EXTRA_REPLY,element);
+        setResult(RESULT_OK, replyIntent);
+        finish();
+    }
 }
