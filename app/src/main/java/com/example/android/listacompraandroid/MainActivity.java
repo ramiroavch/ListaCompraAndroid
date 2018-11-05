@@ -39,13 +39,21 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putStringArrayList("arrayL",arrayList);
     }
-
+    // Ver la lista de productos disponibles
     public void agregar(View view) {
 
         Intent intent = new Intent(this, SecondActivity.class);
         startActivityForResult(intent, TEXT_REQUEST);
 
     }
+    // Limpiar la lista de productos existente
+    public void eliminar(View view) {
+
+        arrayList.clear();
+        adapter.notifyDataSetChanged();
+        
+    }
+
     public void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == TEXT_REQUEST) {
