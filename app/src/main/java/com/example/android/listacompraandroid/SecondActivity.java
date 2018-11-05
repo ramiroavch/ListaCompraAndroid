@@ -74,4 +74,10 @@ public class SecondActivity extends AppCompatActivity {
         setResult(RESULT_OK, replyIntent);
         finish();
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
+    }
 }
