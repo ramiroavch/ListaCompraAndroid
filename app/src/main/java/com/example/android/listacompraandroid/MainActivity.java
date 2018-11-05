@@ -9,6 +9,14 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
+/**
+ *  Activity que muestra una lista de productos creada
+ *   por el usuario
+ *
+ *  @autor Ramiro Vargas, Veronica Hevia
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     public static final int TEXT_REQUEST = 1;
@@ -21,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //creación de las variables
+        /**
+         * creación de las variables
+         */
+
         list=(ListView) findViewById(R.id.listarticles);
         if (savedInstanceState != null) {
             arrayList = savedInstanceState.getStringArrayList("arrayL");
@@ -39,19 +50,27 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putStringArrayList("arrayL",arrayList);
     }
-    // Ver la lista de productos disponibles
+
+    /**
+     * Ver la lista de productos disponibles
+     * @param view
+     */
     public void agregar(View view) {
 
         Intent intent = new Intent(this, SecondActivity.class);
         startActivityForResult(intent, TEXT_REQUEST);
 
     }
-    // Limpiar la lista de productos existente
+
+    /**
+     * Limpiar la lista de productos existente
+     * @param view
+     */
     public void eliminar(View view) {
 
         arrayList.clear();
         adapter.notifyDataSetChanged();
-        
+
     }
 
     public void onActivityResult(int requestCode, int resultCode,Intent data) {

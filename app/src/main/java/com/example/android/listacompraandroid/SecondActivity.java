@@ -24,6 +24,10 @@ public class SecondActivity extends AppCompatActivity {
     public static final String PRICE_REPLY = "com.example.android.listacompraandroid.extra.Price";
     public static final String IMAGE_REPLY = "com.example.android.listacompraandroid.extra.Image";
 
+    /**
+     * Crea el recyclerView donde se muestra la lista
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +78,10 @@ public class SecondActivity extends AppCompatActivity {
         setResult(RESULT_OK, replyIntent);
         finish();
     }
+
+    /**
+     * Botón para volver a la lista del usuario
+     */
 
     @Override
     public boolean onSupportNavigateUp() {
