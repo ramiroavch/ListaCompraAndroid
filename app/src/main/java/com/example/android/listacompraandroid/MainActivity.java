@@ -1,6 +1,7 @@
 package com.example.android.listacompraandroid;
 
 import android.content.Intent;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,13 +40,21 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putStringArrayList("arrayL",arrayList);
     }
-
+    // Ver la lista de productos disponibles
     public void agregar(View view) {
 
         Intent intent = new Intent(this, SecondActivity.class);
         startActivityForResult(intent, TEXT_REQUEST);
 
     }
+    // Limpiar la lista de productos existente
+    public void eliminar(View view) {
+
+        arrayList.clear();
+        adapter.notifyDataSetChanged();
+        
+    }
+
     public void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == TEXT_REQUEST) {
@@ -55,5 +64,15 @@ public class MainActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         }
+    }
+
+    public void share(View view) {
+        String mimeType = "text/plain";
+        ShareCompat.IntentBuilder
+                .from(this)
+                .setType(mimeType)
+                .setChooserTitle("Share this text with: ")
+                .setText("Lista de Compras: "+arrayList.toString())
+                .startChooser();
     }
 }
