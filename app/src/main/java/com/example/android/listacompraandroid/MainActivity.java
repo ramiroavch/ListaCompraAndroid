@@ -23,11 +23,22 @@ public class MainActivity extends AppCompatActivity {
 
         //creación de las variables
         list=(ListView) findViewById(R.id.listarticles);
-        arrayList = new ArrayList<String>();
-        adapter= new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,arrayList);
-        list.setAdapter(adapter);
-    }
+        if (savedInstanceState != null) {
+            arrayList = savedInstanceState.getStringArrayList("arrayL");
 
+        }
+        else {
+            arrayList = new ArrayList<String>();
+        }
+        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
+        list.setAdapter(adapter);
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putStringArrayList("arrayL",arrayList);
+    }
 
     public void agregar(View view) {
 
